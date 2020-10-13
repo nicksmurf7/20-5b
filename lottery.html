@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset = "utf-8">
+  <title> Lottery Sim </title>
+  </head>
+  <body>
+    <h1> Welcome to Lottery Sim! </h1>
+    <br>
+    <h2> Your Results: </h2>
+    <script language = "Javascript">
+      var x = [];
+      for(var i = 0; i < 5; i++){
+        x.push(Math.floor(Math.random() * 49 + 1));
+      }
+      var p = [];
+      p[0] = [Math.floor(Math.random() * 19 + 1) ];
+      x.sort();
+      var w = [7, 17, 29, 35, 45];
+      var wT = [17];
+      var z, q;
+      var c;
+      z = prompt("Enter your numbers: ", x[0] + " " + x[1] + " " + x[2] + " " +  x[3] + " " + x[4] + " ");
+      q = prompt("Enter your Lucky Ball number", p[0]);
+      document.write("The Quick Pick Numbers are: ");
+      document.write(z + " ");
+      document.write("<br/>" + "Your lucky ball number is: " + q + "<br/>");
+      document.write("<br/>" + "The Winning Numbers are: ");
+      document.write(w + "<br/>");
+      document.write("The lucky ball number is: " + wT);
+      var win;
+      for(var i = 0; i <= w.length + 1; i++){
+        if(z[i] == w[i]){
+          c++;
+        }
+      }
+      if(wT == q){
+        m = 1;
+      }
+      if(c == 0 && m == 1){
+        win = 4;
+      } else if(c == 1 && m == 1){
+        win = 6;
+      } else if(c == 2 && m == 0){
+        win = 3;
+      } else if(c == 3 && m == 0){
+        win = 20;
+      } else if(c == 3 && m == 1){
+        win = 150;
+      } else if(c == 4 && m == 0){
+        win = 200;
+      } else if(c == 4 && m == 1){
+        win = 5000;
+      } else if(c == 5 && m == 0){
+        win = 25000;
+      } else if(c == 5 && m == 1){
+        win = 7000;
+      } else{
+        win = 0;
+      }
+      document.write("<br/>" + "<br/>" + "Your Winnings: ");
+      if(win < 5001){
+        document.write("$" + win);
+      } else if (win == 25000){
+        document.write("$" + win + "a YEAR for LIFE");
+      } else if (win == 7000){
+        document.write("$" + win + "a WEEK for LIFE");
+      }
+    </script>
+
+  </body>
+</html>
